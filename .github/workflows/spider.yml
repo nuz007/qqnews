@@ -28,5 +28,5 @@ jobs:
           pip3 install html2text
           python main.py
           git add .
-          git commit --allow-empty -m "爬取腾讯新闻"
+          git commit --allow-empty -m "spider"
           git push -f
