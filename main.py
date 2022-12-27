@@ -18,8 +18,10 @@ for i in datalist:
         tmphtml=requests.get(i[1]).text
         tmpbs=bs(tmphtml,"html.parser")
         ss=str(tmpbs.select("body > div.qq_conent.clearfix > div.LEFT > div.content.clearfix")[0])
-        if not(ss.replace(" ","").replace("\n","")):continue
         s=f"<h1>{i[0]}</h1>"+ss
+        s=s.replace("//inews.gtimg.com","https://inews.gtimg.com").replace("</img>","</img><br/>")
+        s=html2text.html2text(s)
+        if len(s.split())<=4:continue
         if os.path.exists(f"{time.strftime('%Y-%m-%d')}/{i[0]}.md"):continue
-        with open(f"{time.strftime('%Y-%m-%d')}/{i[0]}.md","w",encoding="utf-8") as x:x.write(html2text.html2text(s.replace("//inews.gtimg.com","https://inews.gtimg.com").replace("</img>","</img><br/>")))
+        with open(f"{time.strftime('%Y-%m-%d')}/{i[0]}.md","w",encoding="utf-8") as x:x.write(s)
     except:pass
