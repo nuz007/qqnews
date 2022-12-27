@@ -2,7 +2,7 @@ import requests,os,time,html2text
 from bs4 import BeautifulSoup as bs
 starttime=time.time()
 def timex():return time.strftime('%Y-%m-%d %H:%M:%S:{}'.format(int(time.time()*1000)%1000))
-url1='https://i.news.qq.com/trpc.qqnews_web.kv_srv.kv_srv_http_proxy/list?sub_srv_id=24hours&srv_id=pc&offset=0&limit=150&strategy=1&ext={"pool":["top","hot"],"is_filter":7,"check_type":true}'
+url1='https://i.news.qq.com/trpc.qqnews_web.kv_srv.kv_srv_http_proxy/list?sub_srv_id=24hours&srv_id=pc&offset=0&limit=199&strategy=1&ext={"pool":["top","hot"],"is_filter":7,"check_type":true}'
 headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54"}
 qq1=requests.get(headers=headers,url=url1).json()
 datalist=[]
