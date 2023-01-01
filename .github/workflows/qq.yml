@@ -1,4 +1,4 @@
-name: spider
+name: qq
 on:
   push:
     branches:
@@ -26,7 +26,7 @@ jobs:
           pip3 install requests
           pip3 install bs4
           pip3 install html2text
-          python main.py
+          python qq.py
           git add .
           git commit --allow-empty -m "spider"
           git push -f
