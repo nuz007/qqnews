@@ -30,4 +30,4 @@ for i in datalist:
         with open(f"{sys.path[0]}/{time.strftime('%Y-%m-%d')}/{i[0]}.md","w",encoding="utf-8") as x:x.write(s)
         print(f"SUCCESS\n{i[0]}\n{i[1]}\n\n")
 
-    except:print(f"ERROR\n{i[0]}\n{i[1]}\n\n")
+    except Exception as e:print(f"ERROR\n{i[0]}\n{i[1]}\n{e}\n\n")
