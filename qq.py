@@ -13,6 +13,7 @@ tmphtml=""
 tmpbs=""
 if not os.path.exists(f"{time.strftime('%Y-%m-%d')}"):os.makedirs(f"{time.strftime('%Y-%m-%d')}")
 for i in datalist:
+    time.sleep(1)
     try:
         tmphtml=requests.get(i[1]).text
         tmpbs=bs(tmphtml,"html.parser")
