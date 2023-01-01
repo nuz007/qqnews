@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-python-script:
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - name: checkoutss
         uses: actions/checkout@v2
