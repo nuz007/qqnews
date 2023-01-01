@@ -1,4 +1,4 @@
-import requests,os,time,html2text,sys
+import requests,os,time,html2text,sys,traceback
 from bs4 import BeautifulSoup as bs
 starttime=time.time()
 url1='https://i.news.qq.com/trpc.qqnews_web.kv_srv.kv_srv_http_proxy/list?sub_srv_id=24hours&srv_id=pc&offset=0&limit=190&strategy=1&ext={"pool":["top","hot"],"is_filter":7,"check_type":true}'
@@ -30,4 +30,4 @@ for i in datalist:
         with open(f"{sys.path[0]}/{time.strftime('%Y-%m-%d')}/{i[0]}.md","w",encoding="utf-8") as x:x.write(s)
         print(f"SUCCESS\n{i[0]}\n{i[1]}\n\n")
 
-    except Exception as e:print(f"ERROR\n{i[0]}\n{i[1]}\n{e}\n\n")
+    except Exception as e:print(f"ERROR\n{i[0]}\n{i[1]}\n{e.args}\n======\n{traceback.format_exc()}\n")
