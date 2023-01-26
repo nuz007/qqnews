@@ -19,8 +19,8 @@ jobs:
           python-version: '3.11.0'
       - name: Commit files
         run: |
-          git config --local user.email "bot@github.com"
-          git config --local user.name "bot"
+          git config --local user.email "glibc@foxmail.com"
+          git config --local user.name "QuitDropdatabaseFalse"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           pip3 install requests
