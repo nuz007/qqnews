@@ -2,12 +2,15 @@ import requests,os,time,html2text,sys,traceback
 from bs4 import BeautifulSoup as bs
 starttime=time.time()
 url1='https://i.news.qq.com/trpc.qqnews_web.kv_srv.kv_srv_http_proxy/list?sub_srv_id=24hours&srv_id=pc&offset=0&limit=190&strategy=1&ext={"pool":["top","hot"],"is_filter":7,"check_type":true}'
-headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
+headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
 qq1=requests.get(headers=headers,url=url1).json()
 datalist=[]
 for i in qq1["data"]["list"]:
     tmptitle=i["title"]
     tmpurl=i["url"]
+    if time.strftime("%Y%m%d") not in tmpurl:
+        print(f"EXPIRED\n{tmptitle}\n{tmpurl}\n\n")
+        continue
     datalist.append(tuple([tmptitle,tmpurl]))
 tmphtml=""
 tmpbs=""
